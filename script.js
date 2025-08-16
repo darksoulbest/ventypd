@@ -6,34 +6,47 @@ const enContent = document.getElementById('englishContent');
 const siContent = document.getElementById('sinhalaContent');
 const downloadBtn = document.getElementById('downloadBtn');
 
+// Safety: ensure elements exist before adding listeners
+function safeAddListener(el, ev, fn) {
+  if (!el) return;
+  el.addEventListener(ev, fn);
+}
+
 // LANGUAGE TOGGLE
 function showEnglish() {
-  enContent.style.display = 'block';
-  siContent.style.display = 'none';
+  if (enContent) enContent.style.display = 'block';
+  if (siContent) siContent.style.display = 'none';
+  // accessibility
+  if (enBtn) enBtn.setAttribute('aria-pressed', 'true');
+  if (siBtn) siBtn.setAttribute('aria-pressed', 'false');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  localStorage.setItem('vcpd_lang', 'en');
+  try { localStorage.setItem('vcpd_lang', 'en'); } catch(e) {}
 }
 function showSinhala() {
-  enContent.style.display = 'none';
-  siContent.style.display = 'block';
+  if (enContent) enContent.style.display = 'none';
+  if (siContent) siContent.style.display = 'block';
+  if (enBtn) enBtn.setAttribute('aria-pressed', 'false');
+  if (siBtn) siBtn.setAttribute('aria-pressed', 'true');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  localStorage.setItem('vcpd_lang', 'si');
+  try { localStorage.setItem('vcpd_lang', 'si'); } catch(e) {}
 }
-enBtn.addEventListener('click', showEnglish);
-siBtn.addEventListener('click', showSinhala);
+safeAddListener(enBtn, 'click', showEnglish);
+safeAddListener(siBtn, 'click', showSinhala);
 
 // THEME TOGGLE (dark default)
 function applyTheme(isDark) {
   if (isDark) {
     document.body.classList.remove('theme-dark-off');
-    themeToggle.textContent = 'Light';
+    if (themeToggle) themeToggle.textContent = 'Light';
+    if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
   } else {
     document.body.classList.add('theme-dark-off');
-    themeToggle.textContent = 'Dark';
+    if (themeToggle) themeToggle.textContent = 'Dark';
+    if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
   }
-  localStorage.setItem('vcpd_theme_dark', isDark ? '1' : '0');
+  try { localStorage.setItem('vcpd_theme_dark', isDark ? '1' : '0'); } catch(e) {}
 }
-themeToggle.addEventListener('click', () => {
+safeAddListener(themeToggle, 'click', () => {
   const nowDark = !document.body.classList.contains('theme-dark-off');
   applyTheme(!nowDark);
 });
@@ -41,20 +54,24 @@ themeToggle.addEventListener('click', () => {
 // ON LOAD: prefs + observers
 window.addEventListener('load', () => {
   // Theme
-  const savedDark = localStorage.getItem('vcpd_theme_dark');
+  const savedDark = (function() {
+    try { return localStorage.getItem('vcpd_theme_dark'); } catch (e) { return null; }
+  })();
   applyTheme(savedDark === null ? true : savedDark === '1');
 
   // Language
-  const lang = localStorage.getItem('vcpd_lang') || 'en';
+  const lang = (function() {
+    try { return localStorage.getItem('vcpd_lang') || 'en'; } catch(e) { return 'en'; }
+  })();
   lang === 'si' ? showSinhala() : showEnglish();
 
   // Reveal cards when visible
   const cards = document.querySelectorAll('.card');
-  const obs = new IntersectionObserver((entries) => {
+  const obs = new IntersectionObserver((entries, observer) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        obs.unobserve(e.target);
+        observer.unobserve(e.target);
       }
     });
   }, { threshold: 0.15 });
@@ -62,11 +79,11 @@ window.addEventListener('load', () => {
 
   // Fade sections (topbar/content/footer)
   const fades = document.querySelectorAll('.fade-section');
-  const obs2 = new IntersectionObserver((entries) => {
+  const obs2 = new IntersectionObserver((entries, observer) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        obs2.unobserve(e.target);
+        observer.unobserve(e.target);
       }
     });
   }, { threshold: 0.15 });
@@ -76,7 +93,8 @@ window.addEventListener('load', () => {
 // Cinematic overlay darkens with scroll
 window.addEventListener('scroll', () => {
   const overlay = document.querySelector('.overlay');
-  const y = window.scrollY;
+  if (!overlay) return;
+  const y = window.scrollY || window.pageYOffset || 0;
   // Darken faster initially, then ease
   const opacity = Math.min(0.35 + (y / 600), 0.88);
   overlay.style.background = `rgba(0,0,0,${opacity})`;
@@ -86,29 +104,46 @@ window.addEventListener('scroll', () => {
 const modal = document.getElementById('imgModal');
 const modalImg = document.getElementById('modalImg');
 function openModal(src) {
-  if (!modal) return;
+  if (!modal || !modalImg) return;
   modalImg.src = src;
   modal.classList.add('show');
+  modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 }
 function closeModal() {
-  if (!modal) return;
+  if (!modal || !modalImg) return;
   modal.classList.remove('show');
   modalImg.src = '';
+  modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
 }
-if (modal) modal.addEventListener('click', closeModal);
+if (modal) {
+  modal.addEventListener('click', closeModal);
+  // close on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+}
 
 // Download current HTML (note: references external CSS/JS files)
-downloadBtn.addEventListener('click', () => {
-  const html = '<!doctype html>\n' + document.documentElement.outerHTML;
-  const blob = new Blob([html], { type: 'text/html' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'vcpd_guide.html';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
-});
+if (downloadBtn) {
+  downloadBtn.addEventListener('click', () => {
+    try {
+      // Produce a clean HTML snapshot for download (still references external css/js)
+      const doctype = '<!doctype html>\n';
+      const html = doctype + document.documentElement.outerHTML;
+      const blob = new Blob([html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'vcpd_guide.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => { URL.revokeObjectURL(url); }, 5000);
+    } catch (err) {
+      console.error('Download failed', err);
+      alert('Unable to create download at this time.');
+    }
+  });
+}
