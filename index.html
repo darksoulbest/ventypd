@@ -18,233 +18,232 @@
       allow="autoplay; fullscreen"
       tabindex="-1">
     </iframe>
-    <div class="overlay"></div>
+    <div class="overlay" aria-hidden="true"></div>
   </div>
 
   <!-- Top Controls -->
   <header class="topbar fade-section">
     <img src="https://cdn.discordapp.com/attachments/1362763029774733322/1362763778852262102/logo_without_girl.png?ex=68a1c82b&is=68a076ab&hm=d9d2017494f199c2419c74ff22c8a7bb7d8360c27306318c3d2765bc55c3b83e&" alt="VCPD Logo" class="logo" />
     <div class="controls">
-      <button id="langEn" class="btn">English</button>
-      <button id="langSi" class="btn">සිංහල</button>
-      <button id="themeToggle" class="btn">Dark</button>
+      <button id="langEn" class="btn" aria-pressed="true">English</button>
+      <button id="langSi" class="btn" aria-pressed="false">සිංහල</button>
+      <button id="themeToggle" class="btn" aria-pressed="false">Dark</button>
+      <!-- <button id="downloadBtn" class="btn" title="Download current page">Download</button> -->
     </div>
   </header>
 
- <!-- English Content -->
-<div id="englishContent" class="fade-in delay-2">
-  <img src="https://cdn.discordapp.com/attachments/1362763029774733322/1362764522590437496/VENTY_Pd_bg.png?ex=68a1c8dd&is=68a0775d&hm=eca1ec3d0d4347de1e0471adb581c20fea6d039077eae326fb85a8f0cc6852a5&" alt="VCPD Logo" class="content-logo" />
-  <h1>VCPD Police Traffic Citations and Fines Guide</h1>
-</div>
+  <!-- ENGLISH CONTENT -->
+  <div id="englishContent" class="fade-in delay-2" lang="en">
+    <img src="https://cdn.discordapp.com/attachments/1362763029774733322/1362764522590437496/VENTY_Pd_bg.png?ex=68a1c8dd&is=68a0775d&hm=eca1ec3d0d4347de1e0471adb581c20fea6d039077eae326fb85a8f0cc6852a5&" alt="VCPD Logo" class="content-logo" />
+    <h1>VCPD Police Traffic Citations and Fines Guide</h1>
 
+    <h2>1. Introduction</h2>
+    <p>This guide provides information on common traffic offenses, drug-related offenses, applicable fines, penalties, and procedures during traffic stops. It is designed to help officers enforce laws fairly and inform drivers of their rights and responsibilities within VCPD jurisdiction.</p>
 
-  <h2>1. Introduction</h2>
-  <p>This guide provides information on common traffic offenses, drug-related offenses, applicable fines, penalties, and procedures during traffic stops. It is designed to help officers enforce laws fairly and inform drivers of their rights and responsibilities within VCPD jurisdiction.</p>
+    <hr />
 
-  <hr />
+    <!-- Traffic Offenses Table -->
+    <h2>2. Traffic Offenses and Fines</h2>
+    <table aria-label="Traffic offenses and fines">
+      <thead>
+        <tr>
+          <th>Offense</th><th>Description</th><th>Fine (USD)</th><th>Additional Penalties</th><th>Impound (Days)</th><th>Jail (Months)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Speeding</td><td>Exceeding the posted speed limit.</td><td>3,000</td><td>Possible license suspension</td><td>0</td><td>1</td></tr>
+        <tr><td>Lane Splitting</td><td>Riding between lanes of slow or stopped traffic.</td><td>3,000</td><td>Warning on first offense</td><td>0</td><td>0</td></tr>
+        <tr><td>Running a Red Light</td><td>Ignoring traffic signals at intersections.</td><td>4,500</td><td>2nd offense may lead to license suspension</td><td>0</td><td>3</td></tr>
+        <tr><td>Illegal Parking</td><td>Parking in unauthorized areas or blocking traffic.</td><td>2,000</td><td>Vehicle towing</td><td>0</td><td>0</td></tr>
+        <tr><td>Driving Without License</td><td>Operating a vehicle without a valid license.</td><td>5,000</td><td>Vehicle impoundment</td><td>1</td><td>6</td></tr>
+        <tr><td>Not Wearing Helmet</td><td>Riding a motorcycle without a helmet.</td><td>1,500</td><td>Warning for first offense</td><td>0</td><td>0</td></tr>
+        <tr><td>Using Mobile Phone While Driving</td><td>Using a mobile phone without hands-free while driving.</td><td>2,500</td><td></td><td>0</td><td>0</td></tr>
+        <tr><td>Overloading Vehicle</td><td>Carrying more passengers or goods than allowed.</td><td>3,500</td><td>Warning issued</td><td>0</td><td>0</td></tr>
+        <tr><td>Reckless Driving</td><td>Driving dangerously or causing risk to others.</td><td>7,000</td><td>License suspension possible</td><td>1</td><td>12</td></tr>
+        <tr><td>Drunk Driving</td><td>Driving under the influence of alcohol.</td><td>12,000</td><td>License suspension mandatory</td><td>1</td><td>24</td></tr>
+      </tbody>
+    </table>
 
-  <!-- Traffic Offenses Table -->
-  <h2>2. Traffic Offenses and Fines</h2>
-  <table aria-label="Traffic offenses and fines">
-    <thead>
-      <tr>
-        <th>Offense</th><th>Description</th><th>Fine (USD)</th><th>Additional Penalties</th><th>Impound (Days)</th><th>Jail (Months)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Speeding</td><td>Exceeding the posted speed limit.</td><td>3,000</td><td>Possible license suspension</td><td>0</td><td>1</td></tr>
-      <tr><td>Lane Splitting</td><td>Riding between lanes of slow or stopped traffic.</td><td>3,000</td><td>Warning on first offense</td><td>0</td><td>0</td></tr>
-      <tr><td>Running a Red Light</td><td>Ignoring traffic signals at intersections.</td><td>4,500</td><td>2nd offense may lead to license suspension</td><td>0</td><td>3</td></tr>
-      <tr><td>Illegal Parking</td><td>Parking in unauthorized areas or blocking traffic.</td><td>2,000</td><td>Vehicle towing</td><td>0</td><td>0</td></tr>
-      <tr><td>Driving Without License</td><td>Operating a vehicle without a valid license.</td><td>5,000</td><td>Vehicle impoundment</td><td>1</td><td>6</td></tr>
-      <tr><td>Not Wearing Helmet</td><td>Riding a motorcycle without a helmet.</td><td>1,500</td><td>Warning for first offense</td><td>0</td><td>0</td></tr>
-      <tr><td>Using Mobile Phone While Driving</td><td>Using a mobile phone without hands-free while driving.</td><td>2,500</td><td></td><td>0</td><td>0</td></tr>
-      <tr><td>Overloading Vehicle</td><td>Carrying more passengers or goods than allowed.</td><td>3,500</td><td>Warning issued</td><td>0</td><td>0</td></tr>
-      <tr><td>Reckless Driving</td><td>Driving dangerously or causing risk to others.</td><td>7,000</td><td>License suspension possible</td><td>1</td><td>12</td></tr>
-      <tr><td>Drunk Driving</td><td>Driving under the influence of alcohol.</td><td>12,000</td><td>License suspension mandatory</td><td>1</td><td>24</td></tr>
-    </tbody>
-  </table>
+    <hr />
 
-  <hr />
+    <!-- Drug Offenses Table -->
+    <h2>3. Drug-Related Offenses and Penalties</h2>
+    <table aria-label="Drug related offenses and penalties">
+      <thead>
+        <tr>
+          <th>Offense</th><th>Description</th><th>Fine (USD)</th><th>Jail (Months)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Possession of Illegal Drugs</td><td>Carrying prohibited narcotics or controlled substances.</td><td>8,000</td><td>36</td></tr>
+        <tr><td>Driving Under Influence of Drugs</td><td>Operating a vehicle while impaired by drugs.</td><td>10,000</td><td>24</td></tr>
+        <tr><td>Drug Trafficking</td><td>Selling, distributing, or transporting illegal drugs.</td><td>15,000</td><td>72</td></tr>
+        <tr><td>Drug Use in Public Places</td><td>Consuming drugs in public or near roadways.</td><td>6,000</td><td>12</td></tr>
+      </tbody>
+    </table>
 
-  <!-- Drug Offenses Table -->
-  <h2>3. Drug-Related Offenses and Penalties</h2>
-  <table aria-label="Drug related offenses and penalties">
-    <thead>
-      <tr>
-        <th>Offense</th><th>Description</th><th>Fine (USD)</th><th>Jail (Months)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Possession of Illegal Drugs</td><td>Carrying prohibited narcotics or controlled substances.</td><td>8,000</td><td>36</td></tr>
-      <tr><td>Driving Under Influence of Drugs</td><td>Operating a vehicle while impaired by drugs.</td><td>10,000</td><td>24</td></tr>
-      <tr><td>Drug Trafficking</td><td>Selling, distributing, or transporting illegal drugs.</td><td>15,000</td><td>72</td></tr>
-      <tr><td>Drug Use in Public Places</td><td>Consuming drugs in public or near roadways.</td><td>6,000</td><td>12</td></tr>
-    </tbody>
-  </table>
+    <hr />
 
-  <hr />
+    <!-- Traffic Stop Procedures -->
+    <h2>4. Traffic Stop Procedures (Basic)</h2>
+    <ul>
+      <li>Signal the driver to pull over safely using police lights and siren.</li>
+      <li>Approach the vehicle cautiously, preferably from passenger side.</li>
+      <li>Identify yourself clearly as a VCPD officer and state the reason for the stop.</li>
+      <li>Request driver’s license, registration, and insurance documents.</li>
+      <li>Observe driver’s behavior for signs of impairment or suspicious activity.</li>
+      <li>Issue citation if necessary and explain rights and penalties.</li>
+      <li>Complete paperwork and return documents.</li>
+      <li>Thank the driver and safely return to your vehicle.</li>
+    </ul>
 
-  <!-- Traffic Stop Procedures -->
-  <h2>4. Traffic Stop Procedures (Basic)</h2>
-  <ul>
-    <li>Signal the driver to pull over safely using police lights and siren.</li>
-    <li>Approach the vehicle cautiously, preferably from passenger side.</li>
-    <li>Identify yourself clearly as a VCPD officer and state the reason for the stop.</li>
-    <li>Request driver’s license, registration, and insurance documents.</li>
-    <li>Observe driver’s behavior for signs of impairment or suspicious activity.</li>
-    <li>Issue citation if necessary and explain rights and penalties.</li>
-    <li>Complete paperwork and return documents.</li>
-    <li>Thank the driver and safely return to your vehicle.</li>
-  </ul>
+    <hr />
 
-  <hr />
+    <!-- Driver Rights -->
+    <h2>5. Driver Rights and Responsibilities</h2>
+    <ul>
+      <li>Always comply with lawful instructions from traffic officers.</li>
+      <li>Carry valid driver’s license, registration, and insurance at all times.</li>
+      <li>Maintain vehicle in safe operating condition.</li>
+      <li>Follow traffic signals, speed limits, and road signs.</li>
+      <li>Refrain from driving under the influence of alcohol or drugs.</li>
+      <li>Use safety equipment such as helmets and seatbelts.</li>
+      <li>Report any traffic violations or unsafe driving to authorities.</li>
+    </ul>
 
-  <!-- Driver Rights -->
-  <h2>5. Driver Rights and Responsibilities</h2>
-  <ul>
-    <li>Always comply with lawful instructions from traffic officers.</li>
-    <li>Carry valid driver’s license, registration, and insurance at all times.</li>
-    <li>Maintain vehicle in safe operating condition.</li>
-    <li>Follow traffic signals, speed limits, and road signs.</li>
-    <li>Refrain from driving under the influence of alcohol or drugs.</li>
-    <li>Use safety equipment such as helmets and seatbelts.</li>
-    <li>Report any traffic violations or unsafe driving to authorities.</li>
-  </ul>
+    <hr />
 
-  <hr />
+    <!-- Situations Table -->
+    <h2>6. Situation Fines and Penalties</h2>
+    <table aria-label="Situation fines and penalties">
+      <thead>
+        <tr>
+          <th>Situation</th><th>Description</th><th>Fine (USD)</th><th>Jail (Months)</th><th>Additional Penalties</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Store Robbery</td><td>Theft from retail property.</td><td>2,000</td><td>6</td><td>Asset seizure possible</td></tr>
+        <tr><td>House Robbery</td><td>Illegal entry and theft from residence.</td><td>4,500</td><td>12</td><td>Asset seizure and probation</td></tr>
+        <tr><td>Bank Robbery</td><td>Robbery or attempted robbery of bank premises.</td><td>10,000</td><td>48</td><td>Long-term imprisonment, asset seizure</td></tr>
+        <tr><td>Jewelry Store Robbery</td><td>Theft or burglary of valuables.</td><td>12,000</td><td>60</td><td>Asset seizure, imprisonment</td></tr>
+        <tr><td>Heist (Organized Robbery)</td><td>Coordinated multi-offender crime.</td><td>15,000</td><td>100</td><td>Heavy fines, long-term imprisonment, asset confiscation</td></tr>
+      </tbody>
+    </table>
 
-  <!-- Situations Table -->
-  <h2>6. Situation Fines and Penalties</h2>
-  <table aria-label="Situation fines and penalties">
-    <thead>
-      <tr>
-        <th>Situation</th><th>Description</th><th>Fine (USD)</th><th>Jail (Months)</th><th>Additional Penalties</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Store Robbery</td><td>Theft from retail property.</td><td>2,000</td><td>6</td><td>Asset seizure possible</td></tr>
-      <tr><td>House Robbery</td><td>Illegal entry and theft from residence.</td><td>4,500</td><td>12</td><td>Asset seizure and probation</td></tr>
-      <tr><td>Bank Robbery</td><td>Robbery or attempted robbery of bank premises.</td><td>10,000</td><td>48</td><td>Long-term imprisonment, asset seizure</td></tr>
-      <tr><td>Jewelry Store Robbery</td><td>Theft or burglary of valuables.</td><td>12,000</td><td>60</td><td>Asset seizure, imprisonment</td></tr>
-      <tr><td>Heist (Organized Robbery)</td><td>Coordinated multi-offender crime.</td><td>15,000</td><td>100</td><td>Heavy fines, long-term imprisonment, asset confiscation</td></tr>
-    </tbody>
-  </table>
+    <hr />
 
-  <hr />
+    <!-- Hostage Situations -->
+    <h2>7. Hostage Situations</h2>
+    <table aria-label="Hostage situations fines and penalties">
+      <thead>
+        <tr>
+          <th>Situation</th><th>Description</th><th>Fine (USD)</th><th>Jail (Months)</th><th>Additional Penalties</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Hostage Taking</td><td>Seizing persons to demand ransom or concessions.</td><td>3,500</td><td>120</td><td>Asset seizure, long-term imprisonment</td></tr>
+        <tr><td>Hostage Negotiation Interference</td><td>Obstructing police or negotiators during hostage events.</td><td>5,000</td><td>36</td><td>Additional charges possible</td></tr>
+        <tr><td>Failure to Release Hostage</td><td>Refusing to release hostages after lawful demands.</td><td>8,000</td><td>150</td><td>Severe penalties and asset confiscation</td></tr>
+      </tbody>
+    </table>
 
-  <!-- Hostage Situations -->
-  <h2>7. Hostage Situations</h2>
-  <table aria-label="Hostage situations fines and penalties">
-    <thead>
-      <tr>
-        <th>Situation</th><th>Description</th><th>Fine (USD)</th><th>Jail (Months)</th><th>Additional Penalties</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Hostage Taking</td><td>Seizing persons to demand ransom or concessions.</td><td>3,500</td><td>120</td><td>Asset seizure, long-term imprisonment</td></tr>
-      <tr><td>Hostage Negotiation Interference</td><td>Obstructing police or negotiators during hostage events.</td><td>5,000</td><td>36</td><td>Additional charges possible</td></tr>
-      <tr><td>Failure to Release Hostage</td><td>Refusing to release hostages after lawful demands.</td><td>8,000</td><td>150</td><td>Severe penalties and asset confiscation</td></tr>
-    </tbody>
-  </table>
+    <hr />
 
-  <hr />
+    <!-- Chain of Command -->
+    <h2>9. VCPD Chain of Command and Police Ranks</h2>
+    <p>The following table lists the ranks within VCPD, their hierarchy, and typical pay for each grade.</p>
+    <table>
+      <thead>
+        <tr><th>Rank</th><th>Description</th><th>Special Authority</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cadet</td><td>Entry-level officer undergoing training.</td><td>-</td></tr>
+        <tr><td>Officer 3</td><td>Junior patrol officer.</td><td>-</td></tr>
+        <tr><td>Officer 2</td><td>Patrol officer with experience.</td><td>-</td></tr>
+        <tr><td>Officer 1</td><td>Experienced patrol officer.</td><td>-</td></tr>
+        <tr><td>Senior Officer 2</td><td>Senior field officer.</td><td>-</td></tr>
+        <tr><td>Senior Officer</td><td>Leads small teams.</td><td>-</td></tr>
+        <tr><td>Corporal</td><td>Supervisory rank, assists Sergeants.</td><td>-</td></tr>
+        <tr><td>Sergeant</td><td>First-level supervisor for officers.</td><td>-</td></tr>
+        <tr><td>Lieutenant</td><td>Mid-level command rank.</td><td>-</td></tr>
+        <tr><td>Captain</td><td>Leads a division or unit.</td><td>-</td></tr>
+        <tr><td>Commander</td><td>Oversees multiple divisions.</td><td>-</td></tr>
+        <tr><td>Senior Commander</td><td>High-level strategic officer.</td><td>-</td></tr>
+        <tr><td>Assistant Chief</td><td>Executive leadership, boss rank.</td><td>Boss</td></tr>
+        <tr><td>Chief</td><td>Top operational leader, boss rank.</td><td>Boss</td></tr>
+        <tr><td>Assistant Commissioner</td><td>Executive oversight of departments.</td><td>Boss</td></tr>
+        <tr><td>Commissioner</td><td>Highest authority in VCPD, boss rank.</td><td>Boss</td></tr>
+      </tbody>
+    </table>
 
-  <!-- Chain of Command -->
-  <h2>9. VCPD Chain of Command and Police Ranks</h2>
-  <p>The following table lists the ranks within VCPD, their hierarchy, and typical pay for each grade.</p>
-  <table>
-    <thead>
-      <tr><th>Rank</th><th>Description</th><th>Special Authority</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Cadet</td><td>Entry-level officer undergoing training.</td><td>-</td></tr>
-      <tr><td>Officer 3</td><td>Junior patrol officer.</td><td>-</td></tr>
-      <tr><td>Officer 2</td><td>Patrol officer with experience.</td><td>-</td></tr>
-      <tr><td>Officer 1</td><td>Experienced patrol officer.</td><td>-</td></tr>
-      <tr><td>Senior Officer 2</td><td>Senior field officer.</td><td>-</td></tr>
-      <tr><td>Senior Officer</td><td>Leads small teams.</td><td>-</td></tr>
-      <tr><td>Corporal</td><td>Supervisory rank, assists Sergeants.</td><td>-</td></tr>
-      <tr><td>Sergeant</td><td>First-level supervisor for officers.</td><td>-</td></tr>
-      <tr><td>Lieutenant</td><td>Mid-level command rank.</td><td>-</td></tr>
-      <tr><td>Captain</td><td>Leads a division or unit.</td><td>-</td></tr>
-      <tr><td>Commander</td><td>Oversees multiple divisions.</td><td>-</td></tr>
-      <tr><td>Senior Commander</td><td>High-level strategic officer.</td><td>-</td></tr>
-      <tr><td>Assistant Chief</td><td>Executive leadership, boss rank.</td><td>Boss</td></tr>
-      <tr><td>Chief</td><td>Top operational leader, boss rank.</td><td>Boss</td></tr>
-      <tr><td>Assistant Commissioner</td><td>Executive oversight of departments.</td><td>Boss</td></tr>
-      <tr><td>Commissioner</td><td>Highest authority in VCPD, boss rank.</td><td>Boss</td></tr>
-    </tbody>
-  </table>
+    <hr />
 
-  <hr />
+    <!-- Police Rules -->
+    <h2>10. Police Rules</h2>
+    <ul>
+      <li>Always follow the law and uphold public safety.</li>
+      <li>Respect citizens’ rights and maintain professional conduct at all times.</li>
+      <li>Use force only when necessary and proportional to the threat.</li>
+      <li>Do not engage in corruption, bribery, or abuse of authority.</li>
+      <li>Maintain proper documentation for all arrests, citations, and investigations.</li>
+      <li>Follow chain of command and report misconduct or violations.</li>
+      <li>Protect evidence and respect confidentiality.</li>
+      <li>Continuously improve skills through training and practice.</li>
+      <li>Ensure clear communication with colleagues and public.</li>
+      <li>Take accountability for all actions while on duty.</li>
+    </ul>
 
-  <!-- Police Rules -->
-  <h2>10. Police Rules</h2>
-  <ul>
-    <li>Always follow the law and uphold public safety.</li>
-    <li>Respect citizens’ rights and maintain professional conduct at all times.</li>
-    <li>Use force only when necessary and proportional to the threat.</li>
-    <li>Do not engage in corruption, bribery, or abuse of authority.</li>
-    <li>Maintain proper documentation for all arrests, citations, and investigations.</li>
-    <li>Follow chain of command and report misconduct or violations.</li>
-    <li>Protect evidence and respect confidentiality.</li>
-    <li>Continuously improve skills through training and practice.</li>
-    <li>Ensure clear communication with colleagues and public.</li>
-    <li>Take accountability for all actions while on duty.</li>
-  </ul>
-
-</div>
+  </div> <!-- /#englishContent -->
 
   <!-- SINHALA CONTENT -->
-<div id="sinhalaContent" style="display:none;" lang="si">
-  <section class="card">
-    <h2>1. හැඳින්වීම</h2>
-    <p class="notes">මෙම මාර්ගෝපදේශය VCPD බලප්‍රදේශයේ රථ වාහන වරද, දඩ, ගබඩා දින, විශේෂ අවස්ථා (වොරඩම්/හයිස්ට්) සහ රථ නතර කිරීමේ ක්‍රම සපයයි.</p>
-  </section>
+  <div id="sinhalaContent" style="display:none;" lang="si">
+    <section class="card">
+      <h2>1. හැඳින්වීම</h2>
+      <p class="notes">මෙම මාර්ගෝපදේශය VCPD බලප්‍රදේශයේ රථ වාහන වරද, දඩ, ගබඩා දින, විශේෂ අවස්ථා (වොරඩම්/හයිස්ට්) සහ රථ නතර කිරීමේ ක්‍රම සපයයි.</p>
+    </section>
 
-  <section class="card">
-    <h2>2. රථ වාහන වරද — සාමාන්‍ය දඬුවම්</h2>
-    <table>
-      <thead><tr><th>වරද</th><th>දඩ (USD)</th><th>සඳහා ජයල්</th><th>Impound (දින)</th><th>සටහන්</th></tr></thead>
-      <tbody>
-        <tr><td>වේගය (සාමාන්‍ය)</td><td>3,000</td><td>—</td><td>1</td><td>යළි වරද වැඩි වේ.</td></tr>
-        <tr><td>30%+ ඉක්මවීම</td><td>6,000</td><td>දින 7 දක්වා</td><td>3</td><td>බලපත්‍ර අත්හිටුවීමක්.</td></tr>
-        <tr><td>පාර අතරින් මැදින් යාම</td><td>3,000</td><td>—</td><td>1</td><td>අනතුරුදායක නම් වැඩි දඬුවම්.</td></tr>
-        <tr><td>රතු ලාම්පු ඉවත ලෑල්ල</td><td>4,000</td><td>—</td><td>2</td><td>අනිත් පිරිසට හානි වුවහොත් වැඩි දඩ.</td></tr>
-        <tr><td>බලපත්‍ර රහිතව රියදුරු වීම</td><td>5,000</td><td>—</td><td>3</td><td>වාහනය පරීක්ෂා කර ගබඩාවට තබන ලදි.</td></tr>
-        <tr><td>මත්පැන් යටතේ රියදුරු වීම</td><td>10,000</td><td>6 මාස දක්වා</td><td>7</td><td>Breathalyzer + අත්හිටුවීම.</td></tr>
-      </tbody>
-    </table>
-  </section>
+    <section class="card">
+      <h2>2. රථ වාහන වරද — සාමාන්‍ය දඬුවම්</h2>
+      <table>
+        <thead><tr><th>වරද</th><th>දඩ (USD)</th><th>සඳහා ජයල්</th><th>Impound (දින)</th><th>සටහන්</th></tr></thead>
+        <tbody>
+          <tr><td>වේගය (සාමාන්‍ය)</td><td>3,000</td><td>—</td><td>1</td><td>යළි වරද වැඩි වේ.</td></tr>
+          <tr><td>30%+ ඉක්මවීම</td><td>6,000</td><td>දින 7 දක්වා</td><td>3</td><td>බලපත්‍ර අත්හිටුවීමක්.</td></tr>
+          <tr><td>පාර අතරින් මැදින් යාම</td><td>3,000</td><td>—</td><td>1</td><td>අනතුරුදායක නම් වැඩි දඬුවම්.</td></tr>
+          <tr><td>රතු ලාම්පු ඉවත ලෑල්ල</td><td>4,000</td><td>—</td><td>2</td><td>අනිත් පිරිසට හානි වුවහොත් වැඩි දඩ.</td></tr>
+          <tr><td>බලපත්‍ර රහිතව රියදුරු වීම</td><td>5,000</td><td>—</td><td>3</td><td>වාහනය පරීක්ෂා කර ගබඩාවට තබන ලදි.</td></tr>
+          <tr><td>මත්පැන් යටතේ රියදුරු වීම</td><td>10,000</td><td>6 මාස දක්වා</td><td>7</td><td>Breathalyzer + අත්හිටුවීම.</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-  <section class="card">
-    <h2>3. විශේෂ අවස්ථා (වොරඩම් / හයිස්ට්)</h2>
-    <table>
-      <thead><tr><th>අවස්ථාව</th><th>විස්තරය</th><th>දඩ (උදාහරණ)</th><th>ජයල්</th><th>Impound</th></tr></thead>
-      <tbody>
-        <tr><td>ගබඩාවක් හොරකම</td><td>සාමාන්‍ය කඩුවලින් හොරකම්</td><td>5,000–15,000</td><td>6 මාස–3 වසර</td><td>14 දින</td></tr>
-        <tr><td>ගෙදර හොරකම</td><td>නිවසකින් කවලා ගැනීම</td><td>10,000–40,000</td><td>1–5 වසර</td><td>21 දින</td></tr>
-        <tr><td>වෙළඳ බැංකු හොරකම</td><td>බැංකුවට එල්ල වූ පහර</td><td>25,000–100,000</td><td>5–20 වසර</td><td>අවධිදායක</td></tr>
-        <tr><td>හයිස්ට් (සංග්‍රහිත)</td><td>බහු කණ්ඩායම් රෙදිගැසූ සැලසුම්</td><td>50,000+</td><td>10+ වසර</td><td>අවධිදායක</td></tr>
-      </tbody>
-    </table>
-    <p class="notes">මෙම දණ්ඩ සම්මතයන් සාම්ප්‍රදායික RP / server නීති වලට අනුව වෙනස් කළ හැක.</p>
-  </section>
+    <section class="card">
+      <h2>3. විශේෂ අවස්ථා (වොරඩම් / හයිස්ට්)</h2>
+      <table>
+        <thead><tr><th>අවස්ථාව</th><th>විස්තරය</th><th>දඩ (උදාහරණ)</th><th>ජයල්</th><th>Impound</th></tr></thead>
+        <tbody>
+          <tr><td>ගබඩාවක් හොරකම</td><td>සාමාන්‍ය කඩුවලින් හොරකම්</td><td>5,000–15,000</td><td>6 මාස–3 වසර</td><td>14 දින</td></tr>
+          <tr><td>ගෙදර හොරකම</td><td>නිවසකින් කවලා ගැනීම</td><td>10,000–40,000</td><td>1–5 වසර</td><td>21 දින</td></tr>
+          <tr><td>වෙළඳ බැංකු හොරකම</td><td>බැංකුවට එල්ල වූ පහර</td><td>25,000–100,000</td><td>5–20 වසර</td><td>අවධිදායක</td></tr>
+          <tr><td>හයිස්ට් (සංග්‍රහිත)</td><td>බහු කණ්ඩායම් රෙදිගැසූ සැලසුම්</td><td>50,000+</td><td>10+ වසර</td><td>අවධිදායක</td></tr>
+        </tbody>
+      </table>
+      <p class="notes">මෙම දණ්ඩ සම්මතයන් සාම්ප්‍රදායික RP / server නීති වලට අනුව වෙනස් කළ හැක.</p>
+    </section>
 
-  <section class="card">
-    <h2>4. රථ නතර කිරීමේ මූලික ක්‍රමවේද</h2>
-    <ol>
-      <li>ආරක්ෂිතව රථය නවත්වන්න.</li>
-      <li>නිලධාරීන් ස්වීය හැඳින්වීම කරන්න.</li>
-      <li>බලපත්‍ර, ලියාපදිංචිය සහ රක්ෂණය ඉල්ලන්න.</li>
-      <li>විශ්ලේෂණය සහ ලේඛන සකස් කරන්න.</li>
-    </ol>
-  </section>
-</div>
+    <section class="card">
+      <h2>4. රථ නතර කිරීමේ මූලික ක්‍රමවේද</h2>
+      <ol>
+        <li>ආරක්ෂිතව රථය නවත්වන්න.</li>
+        <li>නිලධාරීන් ස්වීය හැඳින්වීම කරන්න.</li>
+        <li>බලපත්‍ර, ලියාපදිංචිය සහ රක්ෂණය ඉල්ලන්න.</li>
+        <li>විශ්ලේෂණය සහ ලේඛන සකස් කරන්න.</li>
+      </ol>
+    </section>
+  </div>
 
-  <!-- Image Modal (optional, wired up) -->
-  <div id="imgModal" class="modal" aria-hidden="true">
+  <!-- Image Modal (optional) -->
+  <div id="imgModal" class="modal" aria-hidden="true" role="dialog">
     <img id="modalImg" alt="Preview" />
   </div>
 
@@ -255,5 +254,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
